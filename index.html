@@ -391,102 +391,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/upload/head.jpg">
-      <meta itemprop="name" content="沛大鑫">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="PeiXinHuang">
-      <meta itemprop="description" content="记录生活|分享知识">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | PeiXinHuang">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/" class="post-title-link" itemprop="url">Lua调用Csharp</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-17 18:38:39" itemprop="dateCreated datePublished" datetime="2022-07-17T18:38:39+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-18 00:07:37" itemprop="dateModified" datetime="2022-07-18T00:07:37+08:00">2022-07-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B/Lua/" itemprop="url" rel="index"><span itemprop="name">Lua</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Lua调用Csharp（unity）"><a href="#Lua调用Csharp（unity）" class="headerlink" title="Lua调用Csharp（unity）"></a>Lua调用Csharp（unity）</h1><h2 id="一、新建一个类-用于管理Lua虚拟机"><a href="#一、新建一个类-用于管理Lua虚拟机" class="headerlink" title="一、新建一个类,用于管理Lua虚拟机"></a>一、新建一个类,用于管理Lua虚拟机</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> XLua;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">LuaManager</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LuaEnv luaEnv = <span class="keyword">new</span> LuaEnv();    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 获取Lua对象</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>Lua对象<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LuaEnv <span class="title">GetInstance</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (luaEnv <span class="keyword">is</span> <span class="literal">null</span>)</span><br><span class="line">            luaEnv = <span class="keyword">new</span> LuaEnv();</span><br><span class="line">        <span class="keyword">return</span> luaEnv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Csharp%E8%B0%83%E7%94%A8Lua/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -553,6 +457,102 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Csharp%E8%B0%83%E7%94%A8Lua/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/upload/head.jpg">
+      <meta itemprop="name" content="沛大鑫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PeiXinHuang">
+      <meta itemprop="description" content="记录生活|分享知识">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | PeiXinHuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/" class="post-title-link" itemprop="url">Lua调用Csharp</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-17 18:38:39" itemprop="dateCreated datePublished" datetime="2022-07-17T18:38:39+08:00">2022-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-18 00:07:37" itemprop="dateModified" datetime="2022-07-18T00:07:37+08:00">2022-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B/Lua/" itemprop="url" rel="index"><span itemprop="name">Lua</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Lua调用Csharp（unity）"><a href="#Lua调用Csharp（unity）" class="headerlink" title="Lua调用Csharp（unity）"></a>Lua调用Csharp（unity）</h1><h2 id="一、新建一个类-用于管理Lua虚拟机"><a href="#一、新建一个类-用于管理Lua虚拟机" class="headerlink" title="一、新建一个类,用于管理Lua虚拟机"></a>一、新建一个类,用于管理Lua虚拟机</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> XLua;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">LuaManager</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LuaEnv luaEnv = <span class="keyword">new</span> LuaEnv();    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 获取Lua对象</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>Lua对象<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LuaEnv <span class="title">GetInstance</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (luaEnv <span class="keyword">is</span> <span class="literal">null</span>)</span><br><span class="line">            luaEnv = <span class="keyword">new</span> LuaEnv();</span><br><span class="line">        <span class="keyword">return</span> luaEnv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
