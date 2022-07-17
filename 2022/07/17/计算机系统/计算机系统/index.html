@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"peixinhuang.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、计算机系统概述计算机只是一个电子器件，它只能根据用户的知道来完成任务。计算机系统是一个庞大的系统，我们可以抽象地去了解整个系统，通常我们可以把它视为一个图灵机(图灵机是一个黑盒，只需要用户输入操作，在图灵机中完成操作，最后输出结果)，经常我们不需要理解图灵机内部是如何实现。计算机也可以视为是一个通用图灵机（一个可通过编程模式实现任意图灵机的图灵机）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机系统">
+<meta property="og:url" content="https://peixinhuang.github.io/2022/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="PeiXinHuang">
+<meta property="og:description" content="一、计算机系统概述计算机只是一个电子器件，它只能根据用户的知道来完成任务。计算机系统是一个庞大的系统，我们可以抽象地去了解整个系统，通常我们可以把它视为一个图灵机(图灵机是一个黑盒，只需要用户输入操作，在图灵机中完成操作，最后输出结果)，经常我们不需要理解图灵机内部是如何实现。计算机也可以视为是一个通用图灵机（一个可通过编程模式实现任意图灵机的图灵机）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-17T10:38:39.000Z">
+<meta property="article:modified_time" content="2022-07-17T15:53:59.715Z">
+<meta property="article:author" content="沛大鑫">
+<meta property="article:tag" content="计算机系统">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://peixinhuang.github.io/2022/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://peixinhuang.github.io/2022/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/","path":"2022/07/17/计算机系统/计算机系统/","title":"计算机系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机系统 | PeiXinHuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="PeiXinHuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PeiXinHuang</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/images/apple-touch-icon-next.png" alt="PeiXinHuang">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、计算机系统概述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Bit%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97"><span class="nav-number"></span> <span class="nav-text">二、Bit、数据类型及其运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91"><span class="nav-number"></span> <span class="nav-text">三、数字逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%86%AF%C2%B7%E8%AF%BA%E4%BC%8A%E6%9B%BC%E6%A8%A1%E5%9E%8B"><span class="nav-number"></span> <span class="nav-text">四、冯·诺伊曼模型</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="沛大鑫"
+      src="/upload/head.jpg">
+  <p class="site-author-name" itemprop="name">沛大鑫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PeiXinHuang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PeiXinHuang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1716973911@qq.com" title="Mail → http:&#x2F;&#x2F;mail.qq.com&#x2F;cgi-bin&#x2F;qm_share?t&#x3D;qm_mailme&amp;email&#x3D;1716973911@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://peixinhuang.github.io/2022/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/upload/head.jpg">
+      <meta itemprop="name" content="沛大鑫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PeiXinHuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机系统 | PeiXinHuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-17 18:38:39 / 修改时间：23:53:59" itemprop="dateCreated datePublished" datetime="2022-07-17T18:38:39+08:00">2022-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">计算机系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="一、计算机系统概述"><a href="#一、计算机系统概述" class="headerlink" title="一、计算机系统概述"></a>一、计算机系统概述</h3><p>计算机只是一个电子器件，它只能根据用户的知道来完成任务。<br>计算机系统是一个庞大的系统，我们可以抽象地去了解整个系统，通常我们可以把它视为一个图灵机(图灵机是一个黑盒，只需要用户输入操作，在图灵机中完成操作，最后输出结果)，经常我们不需要理解图灵机内部是如何实现。计算机也可以视为是一个通用图灵机（一个可通过编程模式实现任意图灵机的图灵机）。</p>
+<span id="more"></span>
+
+<p>计算机系统包括软件与硬件，通常软件与硬件是相辅相成的，软件的速度提升依赖于硬件的相关特性，硬件的提升需要了解软件的相关性能。<br>计算机生产出来的目的是为了解决我们生活中的问题，但是计算机只要一堆冰凉的硬件，如何让冰凉的硬件去解决问题。一般会有一系列的装转过程，这个过程为：<br>问题 =&gt; 算法 =&gt; 程序 =&gt; ISA指令集 =&gt; 微结构 =&gt; 电路 =&gt; 器件<br>把问题转换成算法，算法不像人类语言那样具有歧义性，而且算法都可以被计算，且计算会被终止。之后算法会被转换成程序语言。程序经编译器转换成ISA指令集,也就是计算机可以执行的指令集合。实现指令集的具体组织被称为微结构，例如在驾驶汽车中，一个从A点移动到B点的指令就需要油门，刹车等结构来实现。微结构的功能使用逻辑电路实现的，而每个逻辑电路的实现需要对应的电子器件来组合电路。</p>
+<h2 id="二、Bit、数据类型及其运算"><a href="#二、Bit、数据类型及其运算" class="headerlink" title="二、Bit、数据类型及其运算"></a>二、Bit、数据类型及其运算</h2><p>Bit可以为1，也可以为0，在电路中使用有无电压来表示。一个字节有八个比特位，可以表示256种状态。所有的ASCII码都能够使用一个字节来表示，两个字节就可以表示出汉字国际码。<br>定义了数字之后，还定义了它的操作方式，这可以定义为一种数据类型。我们可以用k个比特位来表示2^k个无符号整数（从0到2^k-1）对于有符号整数，可以使用正数补码的形式来表示负数，k个比特位可以定义的范围从-2^(k-1)到2^(k-1)-1<br>比特的算术运算有加法与减法，规则为二进制运算，需要考虑溢出问题。<br>比特的逻辑运算有与，或，非，异或运算<br>除了整数类型，还有位矢量数据类型，浮点数数据类型，ASCII码</p>
+<h2 id="三、数字逻辑"><a href="#三、数字逻辑" class="headerlink" title="三、数字逻辑"></a>三、数字逻辑</h2><p>晶体管可以根据电压来控制线路的开闭，n型MOS管在输入为2.9V的时候导通，在0V的时候断开，p型MOS刚好相反。利用n型MOS管与p型MOS管，构建一个电路，使得电路中输入为2.9V的时候，某一点上电压为0，输入为0V的时候，该点电压为2.9V，这样子就构建出了一个非门，与此相似，可以构建出与门、或门、或非门、与或门，它们统称为逻辑门。<br>利用逻辑门，构建译码器，当译码器有n个输入的时候，就会有2^n个输出，用来解释二进制数。<br>利用逻辑门，构建多路复用器，会有2^n个输入，一个输出，用来从多个输入中选择一个。<br>利用逻辑门，构建全加器，实现二进制的加法计算。<br>利用逻辑门，构建寄存器，实现对数据的存储。</p>
+<h2 id="四、冯·诺伊曼模型"><a href="#四、冯·诺伊曼模型" class="headerlink" title="四、冯·诺伊曼模型"></a>四、冯·诺伊曼模型</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" rel="tag"># 计算机系统</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/" rel="prev" title="计算机系统">
+                  <i class="fa fa-chevron-left"></i> 计算机系统
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E5%9F%BA%E7%A1%80/" rel="next" title="Lua基础">
+                  Lua基础 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">沛大鑫</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

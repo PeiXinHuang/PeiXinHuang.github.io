@@ -2,7 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://peixinhuang.github.io/Unity%E4%BC%98%E5%8C%96/index.html</loc>
+    <loc>https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Csharp%E8%B0%83%E7%94%A8Lua/</loc>
+    
+    <lastmod>2022-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/</loc>
+    
+    <lastmod>2022-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E5%9F%BA%E7%A1%80/</loc>
+    
+    <lastmod>2022-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/2022/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</loc>
+    
+    <lastmod>2022-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/about/index.html</loc>
     
     <lastmod>2022-07-17</lastmod>
     
@@ -19,24 +64,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://peixinhuang.github.io/Unity%E4%BC%98%E5%8C%96/Unity%E4%BC%98%E5%8C%961.html</loc>
-    
-    <lastmod>2022-07-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://peixinhuang.github.io/2022/07/17/Index/</loc>
-    
-    <lastmod>2022-07-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://peixinhuang.github.io/</loc>
@@ -46,6 +73,41 @@
   </url>
 
   
+  <url>
+    <loc>https://peixinhuang.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/tags/Lua/</loc>
+    <lastmod>2022-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>https://peixinhuang.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/categories/%E7%BC%96%E7%A8%8B/Lua/</loc>
+    <lastmod>2022-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"peixinhuang.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Csharp调用Lua（unity）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机系统">
+<meta property="og:url" content="https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Csharp%E8%B0%83%E7%94%A8Lua/index.html">
+<meta property="og:site_name" content="PeiXinHuang">
+<meta property="og:description" content="Csharp调用Lua（unity）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-17T10:38:39.000Z">
+<meta property="article:modified_time" content="2022-07-17T16:00:10.222Z">
+<meta property="article:author" content="沛大鑫">
+<meta property="article:tag" content="Lua">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Csharp%E8%B0%83%E7%94%A8Lua/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Csharp%E8%B0%83%E7%94%A8Lua/","path":"2022/07/17/编程/Lua/Csharp调用Lua/","title":"计算机系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机系统 | PeiXinHuang</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="PeiXinHuang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PeiXinHuang</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/images/apple-touch-icon-next.png" alt="PeiXinHuang">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Csharp%E8%B0%83%E7%94%A8Lua%EF%BC%88unity%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">Csharp调用Lua（unity）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB-%E7%94%A8%E4%BA%8E%E7%AE%A1%E7%90%86Lua%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">一、新建一个类,用于管理Lua虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E5%86%99Lua%E6%96%87%E4%BB%B6-LuaModule-lua-txt"><span class="nav-number">1.2.</span> <span class="nav-text">二、编写Lua文件(LuaModule.lua.txt)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81C-%E4%B8%AD%E8%B0%83%E7%94%A8lua%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">三、C#中调用lua变量</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="沛大鑫"
+      src="/upload/head.jpg">
+  <p class="site-author-name" itemprop="name">沛大鑫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PeiXinHuang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PeiXinHuang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1716973911@qq.com" title="Mail → http:&#x2F;&#x2F;mail.qq.com&#x2F;cgi-bin&#x2F;qm_share?t&#x3D;qm_mailme&amp;email&#x3D;1716973911@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://peixinhuang.github.io/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Csharp%E8%B0%83%E7%94%A8Lua/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/upload/head.jpg">
+      <meta itemprop="name" content="沛大鑫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PeiXinHuang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机系统 | PeiXinHuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-17 18:38:39" itemprop="dateCreated datePublished" datetime="2022-07-17T18:38:39+08:00">2022-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-18 00:00:10" itemprop="dateModified" datetime="2022-07-18T00:00:10+08:00">2022-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B/Lua/" itemprop="url" rel="index"><span itemprop="name">Lua</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Csharp调用Lua（unity）"><a href="#Csharp调用Lua（unity）" class="headerlink" title="Csharp调用Lua（unity）"></a>Csharp调用Lua（unity）<span id="more"></span></h1><h2 id="一、新建一个类-用于管理Lua虚拟机"><a href="#一、新建一个类-用于管理Lua虚拟机" class="headerlink" title="一、新建一个类,用于管理Lua虚拟机"></a>一、新建一个类,用于管理Lua虚拟机</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> XLua;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">LuaManager</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LuaEnv luaEnv = <span class="keyword">new</span> LuaEnv();    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 获取Lua对象</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>Lua对象<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LuaEnv <span class="title">GetInstance</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (luaEnv <span class="keyword">is</span> <span class="literal">null</span>)</span><br><span class="line">            luaEnv = <span class="keyword">new</span> LuaEnv();</span><br><span class="line">        <span class="keyword">return</span> luaEnv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="二、编写Lua文件-LuaModule-lua-txt"><a href="#二、编写Lua文件-LuaModule-lua-txt" class="headerlink" title="二、编写Lua文件(LuaModule.lua.txt)"></a>二、编写Lua文件(LuaModule.lua.txt)</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">num1 = <span class="number">10</span></span><br><span class="line">str1 = <span class="string">&#x27;this is a lua string&#x27;</span></span><br><span class="line">table1 = &#123;</span><br><span class="line">	name = <span class="string">&quot;alan&quot;</span>,</span><br><span class="line">	<span class="string">&quot;green&quot;</span>,</span><br><span class="line">	<span class="string">&quot;blue&quot;</span>,</span><br><span class="line">	<span class="string">&quot;yellow&quot;</span>,</span><br><span class="line">	age = <span class="number">8</span>,</span><br><span class="line">	mm = <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&quot;this is lua table&quot;</span>)</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">table1.fun1</span><span class="params">(self)</span></span></span><br><span class="line">	<span class="built_in">print</span>(<span class="built_in">self</span>.name,<span class="built_in">self</span>.age)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">table1.fun2</span><span class="params">(self,num1,num2)</span></span></span><br><span class="line">	<span class="built_in">print</span>(<span class="built_in">self</span>.name,<span class="built_in">self</span>.age)</span><br><span class="line">	<span class="built_in">print</span>(num1 + num2)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span><span class="params">()</span></span></span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;this is a LuaGlobbalFunc&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">(x,y)</span></span></span><br><span class="line">	<span class="built_in">print</span>(x+y)</span><br><span class="line">	<span class="keyword">return</span> (x+y)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func3</span><span class="params">(x,y)</span></span></span><br><span class="line">	<span class="keyword">return</span> x*y,x*x,y*y</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、C-中调用lua变量"><a href="#三、C-中调用lua变量" class="headerlink" title="三、C#中调用lua变量"></a>三、C#中调用lua变量</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> XLua;</span><br><span class="line"></span><br><span class="line">[<span class="meta">CSharpCallLua</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IPerson</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">string</span> name &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="built_in">string</span> age &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">mm</span>()</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun1</span>()</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun2</span>(<span class="params"><span class="built_in">int</span> num1,<span class="built_in">int</span> num2</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">UIManager</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> TextAsset textAsset;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">MyCustomDelegate1</span>()</span>; <span class="comment">//自定义一个依赖</span></span><br><span class="line"></span><br><span class="line">    [<span class="meta">CSharpCallLua</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="built_in">int</span> <span class="title">MyCustomDelegate2</span>(<span class="params"><span class="built_in">int</span> num1,<span class="built_in">int</span> num2</span>)</span>; <span class="comment">//自定义一个带参数的依赖 </span></span><br><span class="line"></span><br><span class="line">    [<span class="meta">CSharpCallLua</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="built_in">int</span> <span class="title">MyCustomDelegate3</span>(<span class="params"><span class="built_in">int</span> num1, <span class="built_in">int</span> num2,<span class="keyword">out</span> <span class="built_in">int</span> result2,<span class="keyword">out</span> <span class="built_in">int</span> result3 </span>)</span>; <span class="comment">//自定义一个依赖 </span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//读取lua文件</span></span><br><span class="line">        LuaManager.GetInstance().DoString(textAsset.text);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取lua中的变量</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//映射lua变量到C#中的基本数据类型</span></span><br><span class="line">        <span class="built_in">int</span> num1 = LuaManager.GetInstance().Global.Get&lt;<span class="built_in">int</span>&gt;(<span class="string">&quot;num1&quot;</span>); <span class="comment">//修改C#中的变量，不会对Lua中的变量产生影响</span></span><br><span class="line">        <span class="built_in">string</span> str1 = LuaManager.GetInstance().Global.Get&lt;<span class="built_in">string</span>&gt;(<span class="string">&quot;str1&quot;</span>); <span class="comment">//修改C#中的变量，不会对Lua中的变量产生影响</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射lua中的table变量到C#中的类变量</span></span><br><span class="line">        Person person = LuaManager.GetInstance().Global.Get&lt;Person&gt;(<span class="string">&quot;table1&quot;</span>); <span class="comment">//使用类的方式是深拷贝，C#中的变量不会影响lua中的变量</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射lua中的table变量到C#中的接口类型变量</span></span><br><span class="line">        IPerson iperson = LuaManager.GetInstance().Global.Get&lt;IPerson&gt;(<span class="string">&quot;table1&quot;</span>); <span class="comment">//使用接口的方式是浅拷贝，C#中的变量影响lua中的变量</span></span><br><span class="line">        <span class="comment">//iperson.fun1(); //调用lua中table的函数</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射lua中的table键值对到C#中的字典中</span></span><br><span class="line">        Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">object</span>&gt; dict1 = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">object</span>&gt;();</span><br><span class="line">        dict1 = LuaManager.GetInstance().Global.Get&lt;Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">object</span>&gt;&gt;(<span class="string">&quot;table1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射lua中的table变量(没有设置键值对的)到C#中的字典中</span></span><br><span class="line">        List&lt;<span class="built_in">object</span>&gt; list = <span class="keyword">new</span> List&lt;<span class="built_in">object</span>&gt;();</span><br><span class="line">        list = LuaManager.GetInstance().Global.Get&lt;List&lt;<span class="built_in">object</span>&gt;&gt;(<span class="string">&quot;table1&quot;</span>);</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">        <span class="comment">//修改lua中的变量</span></span><br><span class="line">        LuaManager.GetInstance().Global.Set&lt;<span class="built_in">string</span>, <span class="built_in">int</span>&gt;(<span class="string">&quot;num1&quot;</span>, <span class="number">99</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用Lua中的公共函数</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射Lua中的函数到Action上</span></span><br><span class="line">        Action action = LuaManager.GetInstance().Global.Get&lt;Action&gt;(<span class="string">&quot;func1&quot;</span>);</span><br><span class="line">        <span class="comment">//action();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射Lua中的函数到自定义依赖上</span></span><br><span class="line">        MyCustomDelegate1 myCustomDelegate1 = LuaManager.GetInstance().Global.Get&lt;MyCustomDelegate1&gt;(<span class="string">&quot;func1&quot;</span>);</span><br><span class="line">        <span class="comment">//myCustomDelegate1(); //调用自定义依赖函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射Lua中的函数(带参数与返回值)到自定义依赖上</span></span><br><span class="line">        MyCustomDelegate2 myCustomDelegate2 = LuaManager.GetInstance().Global.Get&lt;MyCustomDelegate2&gt;(<span class="string">&quot;func2&quot;</span>);</span><br><span class="line">        <span class="comment">//int result = myCustomDelegate2(10, 20); //调用自定义依赖函数</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//映射Lua中的函数(多个返回值)到自定义依赖上</span></span><br><span class="line">        MyCustomDelegate3 myCustomDelegate3 = LuaManager.GetInstance().Global.Get&lt;MyCustomDelegate3&gt;(<span class="string">&quot;func3&quot;</span>);</span><br><span class="line">        <span class="comment">//int result2 = 0;</span></span><br><span class="line">        <span class="comment">//int result3 = 0;</span></span><br><span class="line">        <span class="comment">//int result1 = myCustomDelegate3(10, 20,out result2,out result3);</span></span><br><span class="line">        <span class="comment">//Debug.Log(result1 + &quot;,&quot; + result2 + &quot;,&quot; + result3);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lua/" rel="tag"># Lua</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E8%B0%83%E7%94%A8Csharp/" rel="next" title="计算机系统">
+                  计算机系统 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">沛大鑫</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
