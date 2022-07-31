@@ -9,7 +9,9 @@ https://peixinhuang.github.io/categories/index.html
 https://peixinhuang.github.io/
 https://peixinhuang.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/
 https://peixinhuang.github.io/tags/Lua/
-https://peixinhuang.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-UGUI-Tip/
+https://peixinhuang.github.io/tags/%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/
+https://peixinhuang.github.io/tags/UGUI/
+https://peixinhuang.github.io/tags/Tip/
 https://peixinhuang.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/
 https://peixinhuang.github.io/categories/%E7%BC%96%E7%A8%8B/
 https://peixinhuang.github.io/categories/%E7%BC%96%E7%A8%8B/Lua/

@@ -97,7 +97,21 @@
   </url>
   
   <url>
-    <loc>https://peixinhuang.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-UGUI-Tip/</loc>
+    <loc>https://peixinhuang.github.io/tags/%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/tags/UGUI/</loc>
+    <lastmod>2022-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://peixinhuang.github.io/tags/Tip/</loc>
     <lastmod>2022-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
