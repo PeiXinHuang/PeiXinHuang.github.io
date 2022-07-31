@@ -20,25 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"peixinhuang.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="记录生活|分享知识">
-<meta property="og:type" content="website">
-<meta property="og:title" content="PeiXinHuang">
-<meta property="og:url" content="https://peixinhuang.github.io/categories/Unity/UGUI/Tip/index.html">
+    <meta name="description" content="基本概念Unity Profiler的使用 脚本策略  使用更快的调用脚本方法 不使用空函数回调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity游戏优化">
+<meta property="og:url" content="https://peixinhuang.github.io/2022/07/30/Unity/Unity%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="PeiXinHuang">
-<meta property="og:description" content="记录生活|分享知识">
+<meta property="og:description" content="基本概念Unity Profiler的使用 脚本策略  使用更快的调用脚本方法 不使用空函数回调">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-30T12:38:39.000Z">
+<meta property="article:modified_time" content="2022-07-31T10:50:45.848Z">
 <meta property="article:author" content="沛大鑫">
+<meta property="article:tag" content="UGUI">
+<meta property="article:tag" content="Tip">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://peixinhuang.github.io/categories/Unity/UGUI/Tip/">
+<link rel="canonical" href="https://peixinhuang.github.io/2022/07/30/Unity/Unity%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/Unity/UGUI/Tip/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://peixinhuang.github.io/2022/07/30/Unity/Unity%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/","path":"2022/07/30/Unity/Unity游戏优化/","title":"Unity游戏优化"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: Tip | PeiXinHuang</title>
+<title>Unity游戏优化 | PeiXinHuang</title>
   
 
 
@@ -101,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -114,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -128,18 +134,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -190,50 +196,118 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Tip
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://peixinhuang.github.io/2022/07/30/Unity/Unity%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/upload/head.jpg">
+      <meta itemprop="name" content="沛大鑫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PeiXinHuang">
+      <meta itemprop="description" content="记录生活|分享知识">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Unity游戏优化 | PeiXinHuang">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity游戏优化
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-30 20:38:39" itemprop="dateCreated datePublished" datetime="2022-07-30T20:38:39+08:00">2022-07-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-31 18:50:45" itemprop="dateModified" datetime="2022-07-31T18:50:45+08:00">2022-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>Unity Profiler的使用</p>
+<p>脚本策略</p>
+<ol>
+<li>使用更快的调用脚本方法</li>
+<li>不使用空函数回调</li>
+<li></li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-07-30T20:38:39+08:00"
-              content="2022-07-30">
-          07-30
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/30/Unity/Unity%E5%AE%9E%E7%8E%B0%E4%B8%8D%E8%A7%84%E5%88%99%E6%8C%89%E9%92%AE/" itemprop="url">
-            <span itemprop="name">Unity实现不规则按钮</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/UGUI/" rel="tag"># UGUI</a>
+              <a href="/tags/Tip/" rel="tag"># Tip</a>
+              <a href="/tags/Unity/" rel="tag"># Unity</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/17/%E7%BC%96%E7%A8%8B/Lua/Lua%E5%9F%BA%E7%A1%80/" rel="prev" title="Lua基础">
+                  <i class="fa fa-chevron-left"></i> Lua基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/30/Unity/Unity%E5%AE%9E%E7%8E%B0%E4%B8%8D%E8%A7%84%E5%88%99%E6%8C%89%E9%92%AE/" rel="next" title="Unity实现不规则按钮">
+                  Unity实现不规则按钮 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
