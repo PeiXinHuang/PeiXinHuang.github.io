@@ -46,18 +46,16 @@
     <link href="https://peixinhuang.github.io/2022/07/30/Unity/Unity%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/"/>
     <id>https://peixinhuang.github.io/2022/07/30/Unity/Unity%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/</id>
     <published>2022-07-30T12:38:39.000Z</published>
-    <updated>2022-07-31T10:50:45.848Z</updated>
+    <updated>2022-08-04T15:16:49.303Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>Unity Profiler的使用</p><p>脚本策略</p><ol><li>使用更快的调用脚本方法</li><li>不使用空函数回调</li><li></li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p><strong>游戏优化的思路</strong></p><p>在我们对要对游戏进行优化的时候，我们首先应该是确定好游戏优化的指标（例如游戏允许的CPU消耗量，内存使用量，并发用户数量等），然后再目标平台上进行数据收集，之后对这些数据进行分析优化。再有充分的理由与确定存在性能问题之前，进行预先优化是不明智的行为。</p></blockquote><blockquote><p><strong>Unity中Profiler的使用</strong></p><ul><li><p>Profiler的作用：收集到游戏运行时候的各项数据</p><ul><li>CPU消耗量</li><li>渲染和CPU信息</li><li>内存分配和消耗量</li><li>音频源/数据的使用情况</li><li>物理引擎的使用情况</li><li>网络消息传递和活动情况</li><li>视频回放的使用情况</li><li>基本和详细的用户界面性能</li><li>全局光照统计数据</li></ul></li><li><p>使用Profiler的方法（任何性能分析都会带来额外的性能损耗，尤其是在Editor面板上，这些都会在一定程度上影响到数据信息，Editor面板有时也可能会由于编辑器的预加载是的性能更快）</p><ul><li>指令注入</li><li>基准分析 —— 对程序有一次基本的浮光掠影的体验，知道那些地方有性能问题</li></ul></li><li><p>Profiler的使用</p><ul><li>在编辑器或主机运行的实例（需要编译的时候启用Develpment Build 与 Autoconnect Profiler选项）中使用</li><li>连接WebGL使用（需要编译的时候启用Develpment Build 与 Autoconnect Profiler选项）</li><li>连接IOS中使用（需要编译的时候启用Develpment Build 与 Autoconnect Profiler选项）</li><li>连接Android设备使用（需要编译的时候启用Develpment Build 与 Autoconnect Profiler选项）</li></ul></li></ul></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;Unity Profiler的使用&lt;/p&gt;
-&lt;p&gt;脚本策略&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用更快的调用脚本方法&lt;/li&gt;
-&lt;l</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;游戏优化的思路&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在我们对要对游戏进行优化的时候，我们首先应该是确定好游戏优化的指标（例如游戏允许的CPU消耗量，内存使用量，并发用户数量等），然后再目标平台上进行数据收集，之后对这些数据进行分析优化。</summary>
       
     
     
